@@ -16,85 +16,130 @@ export default function Dashboard(){
         <SafeAreaView style={{
             height:"100%",
             width:"100%",
-            backgroundColor:"red"
+            backgroundColor:"white"
         }}>
-            <View style={{
-                height:"7%",
-                width:"100%",
-                backgroundColor:"black",
-                display:"flex",
-                flexDirection:"row",
-                justifyContent:"space-between",
-            }}>
-                <FontAwsome name="bars" size={30} style={{
-                    color:"white",
-                    marginTop:"3%",
-                    marginLeft:10
-                }} />
-                <Text style={{
-                    color:"white",
-                    fontSize:20,
-                    marginTop:"3%",
-                }}> Apato KE</Text>
-                <FontAwsome name="bell" size={30} style={{
-                    marginTop:"3%",
-                    marginRight:10,
-                    color:"white",
-                }} />
-
-            </View>
+            <View
+        style={{
+          height: '7%',
+          width: '100%',
+          borderColor: 'paleturquoise',
+          borderStyle:"solid",
+          borderWidth:1.5,
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+        }}
+      >
+      
+        <TouchableOpacity style={{
+          marginTop: '3%',
+          marginLeft: 10,
+        }} >
+        <FontAwsome
+          name="bars"
+          size={30}
+          style={{
+            color: 'paleturquoise',
+            
+          }}
+        />
+        </TouchableOpacity>
+        <Text
+          style={{
+            color: 'brown',
+            fontSize: 20,
+            marginTop: '3%',
+            fontWeight: 800,
+            
+          }}
+        >
+          {' '}
+          APATO KENYA
+        </Text>
+        <TouchableOpacity style={{
+          marginTop: '3%',
+          marginRight: 10,
+        }} >
+        <FontAwsome
+          name="bell"
+          size={30}
+          style={{
+            
+            color: 'paleturquoise',
+          }}
+        />
+        </TouchableOpacity>
+      </View>
             {choices&&(<View style={{
                 height:"7%",
                 width:"100%",
                 backgroundColor:"white",
                 display:"flex",
                 flexDirection:"row",
-
+                marginTop:5,
+                
             }}>
                 <TouchableOpacity style={listing?{
                     
                     width:"50%",
-                    backgroundColor:"grey",
-                    borderBottomColor:"black",
-                    borderBottomWidth:1.5,
+                    backgroundColor:"brown",
+                    borderColor:'paleturquoise',
+                    borderWidth:2,
+                    borderRadius:20,
                 }:{
                     
                     width:"50%",
-                    backgroundColor:"white",
-                    
+                    backgroundColor:"paleturquoise",
+                    borderWidth:1.5,
+                    borderRadius:20,
+                    borderColor:"brown",
                     
                 }} onPress={()=>{
                     setListing(true)
                     setClientDashboard(false)
                 }}>
-                    <Text style={{
+                    <Text style={listing?{
                         textAlign:"center",
-                        marginTop:20,
+                        marginTop:12,
+                        color:"paleturquoise"
                         
-                    }}>House Listing</Text>
+                    }:{
+                        textAlign:"center",
+                        marginTop:12,
+                        color:"brown"
+                        
+                    }}>Listed Apartments</Text>
                 </TouchableOpacity >
                 <TouchableOpacity style={clientDashboard?{
                     
                     width:"50%",
-                    backgroundColor:"grey",
-                   
-                    borderBottomColor:"black",
-                    borderBottomWidth:1.5,
-                   
+                    backgroundColor:"brown",
+                    borderColor:'paleturquoise',
+                    borderWidth:2,
+                    borderRadius:20,
                 }:{
                     
                     width:"50%",
-                    backgroundColor:"white",
-               
+                    backgroundColor:"paleturquoise",
+                    borderWidth:1.5,
+                    borderRadius:20,
+                    borderColor:"brown",
+                    
                 }} onPress={()=>{
                     setListing(false)
                     setClientDashboard(true)
                 }}>
-                    <Text style={{
+                    <Text style={clientDashboard?{
                         textAlign:"center",
-                        marginTop:20,
+                        marginTop:12,
+                        color:"paleturquoise"
                         
-                    }}>Client Dashboard</Text>
+                    }:{
+                        textAlign:"center",
+                        marginTop:12,
+                        color:"brown"
+                        
+                    }}>My Apartment</Text>
                 </TouchableOpacity>
             </View>)}
 
@@ -107,7 +152,7 @@ export default function Dashboard(){
             )}
             {clientDashboard &&(
                 <View style={{
-                    height:"76%"
+                    height:"100%"
                 }}>
                     <ClientDash/>
                 </View>

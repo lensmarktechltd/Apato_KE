@@ -8,6 +8,16 @@ export default function ApartmentListing(){
             <Text style={{
                 textAlign:"center",
             }} >Apartment Listing</Text>
+            <View style={{
+                display:"flex",
+                flexDirection:"row",
+                justifyContent:"space-between",
+            }}>
+                <Text>Name</Text>
+                <Text>located at</Text>
+                <Text>status</Text>
+                <Text>rooms</Text>
+            </View>
             <ScrollView>
             {list.map(item=>(
                 <TouchableOpacity key={item.id} style={{
@@ -19,13 +29,18 @@ export default function ApartmentListing(){
                     width:"96%",
                     marginLeft:"2%",
                     justifyContent:"space-between",
+                    borderColor:'paleturquoise',
+                    borderWidth:2,
+                    borderRadius:20,
                 }} >
                     <Text style={{
                         marginTop:15,
-                        marginLeft:5
+                        marginLeft:5,
+                        color:"brown"
                     }}>{item.name}</Text>
                     <Text style={{
                         marginTop:15,
+                        color:"brown"
                     }}>{item.location}</Text>
                     <Text style={{
                         marginTop:15,
@@ -33,6 +48,7 @@ export default function ApartmentListing(){
                     <Text style={{
                         marginTop:15,
                         marginRight:10,
+                        color:"brown"
                     }}>{item.emptyRooms}</Text>
                 </TouchableOpacity>
             ))}
